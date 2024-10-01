@@ -18,6 +18,7 @@ public class DecectCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        other.GetComponent<TaggerMovement>().AddScore();
         Destroy(gameObject);
     }
 }

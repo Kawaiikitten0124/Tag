@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Tagger : MonoBehaviour
+public class TaggerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,8 @@ public class Tagger : MonoBehaviour
     private float forwardInput;
     public float xRange = 10.0f;
     public float zRange = 10.0f;
+    public int score;
+    public Text ScoreText;
     void Update()
     {
         forwardInput = Input.GetAxis("Vertical");
@@ -62,5 +65,10 @@ public class Tagger : MonoBehaviour
         }
         horizontalInput = Input.GetAxis("vertical");
         transform.Translate(Vector3.forward * forwardInput * Time.deltaTime);
+    }
+    public void AddScore()
+    {
+        score++; 
+        ScoreText.text = score.ToString();
     }
 }
